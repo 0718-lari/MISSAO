@@ -1,0 +1,117 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e293b, #3b82f6);
+    color: #333;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+
+h2 {
+    color:#1e293b 
+    font-weight: normal;
+}
+
+/* Container dos produtos */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+/* Card dos produtos */
+.produto {
+    background: white;
+    padding: 15px;
+    width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+.produto:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagem */
+.produto img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Nome */
+.produto h3 {
+    margin: 5px 0;
+}
+
+/* Preço */
+.produto p {
+    color: #16a34a;
+    font-weight: bold;
+    margin: 5px 0 10px;
+}
+
+/* Botão */
+button {
+    background: #3b82f6;
+    border: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+/* Carrinho */
+#carrinhoBox {
+    background: white;
+    width: 320px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    text-align: left;
+}
+
+#carrinhoBox h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#carrinhoBox p{
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.itemCarrinho {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Total */
+#total {
+    color: #16a34a;
+    font-weight: bold;
+}
