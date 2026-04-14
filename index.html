@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lojinha Pro</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #494747;
+            text-align: center;
+        }
+
+        h1 {
+            color: #67c3ee;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .produto {
+            background: white;
+            padding: 15px;
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .produto img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #carrinhoBox {
+            margin-top: 30px;
+            background: white;
+            padding: 15px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .itemCarrinho {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Lojinha Outfit</h1>
+
+    <h2>Itens: <span id="quantidade">0</span></h2>
+    
+    <div class="container">
+
+        <div class="produto">
+            <img src="Imagens/OIP.webp" alt="BONÉ">
+            <h3>Boné</h3>
+            <p>R$ 59,99</p>
+            <button onclick="adicionar('Boné', 59,99)">Adicionar</button>
+        </div>
+
+        <div class="produto">
+            <img src="Imagens/51POYnG3gDL._AC_SX425_.jpg" alt="CAMISA">
+            <h3>Camiseta</h3>
+            <p>R$ 74,99</p>
+            <button onclick="adicionar('Camiseta', 74 ,99)">Adicionar</button>
+        </div>
+
+        <div class="produto">
+           <img src="Imagens/calca.jpg" alt="CALÇA">
+            <h3>Calça</h3>
+            <p>R$ 69,99</p>
+            <button onclick="adicionar('Calça', 69,99)">Adicionar</button>
+        </div>
+
+        <div class="produto">
+            <img src="Imagens/174-1458-006_zoom2.webp" alt="SAPATÊNIS">
+            <h3>Tênis</h3>
+            <p>R$ 219,99</p>
+            <button onclick="adicionar('Sapatênis', 219,99)">Adicionar</button>
+        </div>
+
+        <div class="produto">
+            <img src="Imagens/Mochila.webp" alt="MOCHILA">
+            <h3>Mochila</h3>
+            <p>R$ 149,99</p>
+            <button onclick="adicionar('Mochila', 149,99)">Adicionar</button>
+        </div>
+
+    </div>
+
+    <div id="carrinhoBox">
+        <h3>🧾 Carrinho</h3>
+        <div id="lista"></div>
+    </div>
+
+    <h2>Total: R$ <span id="total">0</span></h2>
+
+    <script>
+        let quantidade = 0;
+        let total = 0;
+        let carrinho = [];
+
+        function adicionar(nome, preco) {
+            quantidade++;
+            total += preco;
+
+            carrinho.push({ nome, preco });
+
+            atualizarTela();
+        }
+
+        function remover(index) {
+            total -= carrinho[index].preco;
+            quantidade--;
+
+            carrinho.splice(index, 1);
+
+            atualizarTela();
+        }
+
+        function atualizarTela() {
+            document.getElementById("quantidade").innerText = quantidade;
+            document.getElementById("total").innerText = total;
+
+            let lista = document.getElementById("lista");
+            lista.innerHTML = "";
+
+            carrinho.forEach((item, index) => {
+                lista.innerHTML += `
+            <div class="itemCarrinho">
+                ${item.nome} - R$ ${item.preco}
+                <button onclick="remover(${index})">❌</button>
+            </div>
+        `;
+            });
+        }
+    </script>
+
+</body>
+
+</html>
